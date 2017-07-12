@@ -19,7 +19,9 @@ public class BoardCreator : MonoBehaviour {
         {
             if (_marker == null)
             {
-                GameObject instance = Instantiate(tileSelectionIndicatorPrefab) as GameObject;
+                GameObject instance = GameObject.FindGameObjectWithTag("TileSelection");
+                if (instance == null)
+                    instance = Instantiate(tileSelectionIndicatorPrefab) as GameObject;
                 _marker = instance.transform;
             }
             return _marker;

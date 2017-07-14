@@ -5,9 +5,16 @@ using UnityEngine;
 public class Tile : MonoBehaviour {
 
     public const float stepHeight = 0.25f;
-
+    
     public Point pos;
     public int height;
+
+    // contents of tile
+    public GameObject content;
+
+    // pathfinding fields
+    [HideInInspector] public Tile prev;
+    [HideInInspector] public int distance;
 
     // gets the Vector3 location of the tile's center
     public Vector3 center {

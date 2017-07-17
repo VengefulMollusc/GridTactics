@@ -17,7 +17,7 @@ public class InitBattleState : BattleState {
         SpawnTestUnits(); // temp for demo
         yield return null;
         //owner.ChangeState<MoveTargetState>();
-        owner.ChangeState<SelectUnitState>();
+        owner.ChangeState<CutSceneState>(); // SelectUnitState
     }
 
     void SpawnTestUnits()

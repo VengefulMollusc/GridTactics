@@ -2,6 +2,12 @@ Sanity system.
 perhaps no health? only mental damage
 characters who lose all sanity become inhuman
 
+multiple types of sanity damage
+visual/audio
+can be more succeptible to one or the other (earplug accessories lessen audio damage etc)
+
 psychic powers?
 perhaps aquired by rescuing characters from near insanity
 
+enemies react to 'perception' of the player characters
+change state or position when not visible?

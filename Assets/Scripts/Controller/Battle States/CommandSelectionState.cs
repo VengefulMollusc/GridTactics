@@ -47,7 +47,7 @@ public class CommandSelectionState : BaseAbilityMenuState {
         }
         else
         {
-            owner.ChangeState<SelectUnitState>();
+            owner.ChangeState<ExploreState>();
         }
     }
 }

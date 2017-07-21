@@ -75,13 +75,13 @@ public class AbilityMenuPanelController : MonoBehaviour
         if (menuEntries[value].IsLocked)
             return false;
 
-        // deselect previously selected entry
+        // Deselect the previously selected entry
         if (selection >= 0 && selection < menuEntries.Count)
             menuEntries[selection].IsSelected = false;
 
         selection = value;
 
-        // select the new entry
+        // Select the new entry
         if (selection >= 0 && selection < menuEntries.Count)
             menuEntries[selection].IsSelected = true;
 

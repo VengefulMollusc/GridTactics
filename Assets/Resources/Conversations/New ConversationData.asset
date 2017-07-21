@@ -15,15 +15,9 @@ MonoBehaviour:
   - messages:
     - Now that we have these two scripts, we can create a ConversationData asset
     speaker: {fileID: 21300000, guid: f716d662e18996041a478b538ee0a387, type: 3}
-    anchor: 0
+    anchor: 6
   - messages:
     - Go ahead and create an instance of our Conversation Data
     - and place it in the Resources/Conversations folder
-    - 'Name the asset IntroScene and give it some sort of implementation:'
     speaker: {fileID: 21300000, guid: f716d662e18996041a478b538ee0a387, type: 3}
-    anchor: 2
-  - messages:
-    - Note that in this example, I duplicated the Avatar sprite
-    - and then recolored it and saved it as EvilAvatar
-    speaker: {fileID: 21300000, guid: f716d662e18996041a478b538ee0a387, type: 3}
-    anchor: 6
+    anchor: 8

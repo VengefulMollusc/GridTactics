@@ -37,9 +37,9 @@ public class AbilityMenuEntry : MonoBehaviour {
         set
         {
             if (value)
-                State |= States.Selected;
+                State |= States.Locked;
             else
-                State &= ~States.Selected;
+                State &= ~States.Locked;
         }
     }
 
@@ -55,7 +55,7 @@ public class AbilityMenuEntry : MonoBehaviour {
         }
     }
 
-    private States State
+    States State
     {
         get { return state; }
         set
@@ -73,7 +73,7 @@ public class AbilityMenuEntry : MonoBehaviour {
             else if (IsSelected)
             {
                 bullet.sprite = selectedSprite;
-                label.color = new Color32(255, 210, 118, 255);
+                label.color = new Color32(249, 210, 118, 255);
                 outline.effectColor = new Color32(255, 160, 72, 255);
             }
             else
@@ -84,8 +84,7 @@ public class AbilityMenuEntry : MonoBehaviour {
             }
         }
     }
-
-    private States state;
+    States state;
 
     public void Reset()
     {

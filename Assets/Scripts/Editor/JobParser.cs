@@ -4,8 +4,8 @@ using System;
 using System.IO;
 using System.Collections;
 
-public static class JobParser {
-
+public static class JobParser
+{
     [MenuItem("Pre Production/Parse Jobs")]
     public static void Parse()
     {
@@ -27,10 +27,10 @@ public static class JobParser {
         string readPath = string.Format("{0}/Settings/JobStartingStats.csv", Application.dataPath);
         string[] readText = File.ReadAllLines(readPath);
         for (int i = 1; i < readText.Length; ++i)
-            ParseStartingStats(readText[i]);
+            PartsStartingStats(readText[i]);
     }
 
-    static void ParseStartingStats(string line)
+    static void PartsStartingStats(string line)
     {
         string[] elements = line.Split(',');
         GameObject obj = GetOrCreate(elements[0]);
@@ -50,7 +50,7 @@ public static class JobParser {
         string readPath = string.Format("{0}/Settings/JobGrowthStats.csv", Application.dataPath);
         string[] readText = File.ReadAllLines(readPath);
         for (int i = 1; i < readText.Length; ++i)
-            ParseStartingStats(readText[i]);
+            ParseGrowthStats(readText[i]);
     }
 
     static void ParseGrowthStats(string line)

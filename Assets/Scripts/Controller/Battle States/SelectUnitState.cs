@@ -32,7 +32,14 @@ public class SelectUnitState : BattleState {
     {
         index = (index + 1) % units.Count;
         turn.Change(units[index]);
+        RefreshPrimaryStatPanel(pos);
         yield return null;
         owner.ChangeState<CommandSelectionState>();
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        statPanelController.HidePrimary();
     }
 }

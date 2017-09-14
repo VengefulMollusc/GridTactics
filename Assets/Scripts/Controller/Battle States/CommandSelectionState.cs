@@ -32,7 +32,7 @@ public class CommandSelectionState : BaseAbilityMenuState {
                 owner.ChangeState<CategorySelectionState>();
                 break;
             case 2: // wait
-                owner.ChangeState<SelectUnitState>();
+                owner.ChangeState<EndFacingState>();
                 break;
         }
     }

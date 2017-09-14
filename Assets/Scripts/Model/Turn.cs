@@ -12,6 +12,8 @@ public class Turn {
     Tile startTile;
     Directions startDir;
 
+    public List<Tile> targets;
+
     public void Change (Unit current)
     {
         actor = current;

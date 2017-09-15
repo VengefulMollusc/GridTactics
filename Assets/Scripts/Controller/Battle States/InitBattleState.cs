@@ -17,6 +17,8 @@ public class InitBattleState : BattleState {
         SpawnTestUnits(); // temp for demo
         yield return null;
         //owner.ChangeState<MoveTargetState>();
+        owner.round = owner.gameObject.AddComponent<TurnOrderController>().Round();
+
         owner.ChangeState<CutSceneState>(); // SelectUnitState
     }
 

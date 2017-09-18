@@ -38,6 +38,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4611401859827854}
   - component: {fileID: 114362929010992604}
+  - component: {fileID: 114819363742185770}
+  - component: {fileID: 114720764539358446}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -350,6 +352,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054a471910fd1e042acf4872f7d5482f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114720764539358446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1469408904405030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97275eeff9b64ad4495f90a4b7ea127d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114818163704217496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -363,6 +376,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontal: 1
   vertical: 1
+--- !u!114 &114819363742185770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1469408904405030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba2230392e72a84db5f30a70a692d3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135219031493414932
 SphereCollider:
   m_ObjectHideFlags: 1

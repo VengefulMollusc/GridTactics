@@ -63,4 +63,10 @@ public struct Point : IEquatable<Point> {
     {
         return string.Format("({0},{1})", x, y);
     }
+
+    // implicit conversion from Point to Vector2
+    public static implicit operator Vector2(Point p)
+    {
+        return new Vector2(p.x, p.y);
+    }
 }

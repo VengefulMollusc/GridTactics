@@ -1,18 +1,10 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class DamageAbilityEffect : BaseAbilityEffect
 {
-
-    public const string GetAttackNotification = "DamageAbilityEffect.GetAttackNotification";
-    public const string GetDefenseNotification = "DamageAbilityEffect.GetDefenseNotification";
-    public const string GetPowerNotification = "DamageAbilityEffect.GetPowerNotification";
-    public const string TweakDamageNotification = "DamageAbilityEffect.TweakDamageNotification";
-
-    private const int minDamage = -999;
-    private const int maxDamage = 999;
-
+    #region Public
     public override int Predict(Tile target)
     {
         Unit attacker = GetComponentInParent<Unit>();
@@ -43,41 +35,26 @@ public class DamageAbilityEffect : BaseAbilityEffect
 
         // Clamp the damage to a range
         damage = Mathf.Clamp(damage, minDamage, maxDamage);
-        return damage;
+        return -damage;
     }
 
-    public override void Apply(Tile target)
+    protected override int OnApply(Tile target)
     {
         Unit defender = target.content.GetComponent<Unit>();
 
-        // Start with predicted damage value
+        // Start with the predicted damage value
         int value = Predict(target);
 
         // Add some random variance
-        value *= Mathf.FloorToInt(UnityEngine.Random.Range(0.9f, 1.1f));
+        value = Mathf.FloorToInt(value * UnityEngine.Random.Range(0.9f, 1.1f));
 
         // Clamp the damage to a range
         value = Mathf.Clamp(value, minDamage, maxDamage);
+
         // Apply the damage to the target
         Stats s = defender.GetComponent<Stats>();
-        s[StatTypes.HP] -= value;
+        s[StatTypes.HP] += value;
+        return value;
     }
-
-
-    int GetStat(Unit attacker, Unit target, string notification, int startValue)
-    {
-        var mods = new List<ValueModifier>();
-        var info = new Info<Unit, Unit, List<ValueModifier>>(attacker, target, mods);
-
-        this.PostNotification(notification, info);
-        mods.Sort();
-
-        float value = startValue;
-        for (int i = 0; i < mods.Count; i++)
-            value = mods[i].Modify(startValue, value);
-
-        int retValue = Mathf.FloorToInt(value);
-        retValue = Mathf.Clamp(retValue, minDamage, maxDamage);
-        return retValue;
-    }
+    #endregion
 }

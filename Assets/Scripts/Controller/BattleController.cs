@@ -19,6 +19,7 @@ public class BattleController : StateMachine {
 
     public AbilityMenuPanelController abilityMenuPanelController;
     public StatPanelController statPanelController;
+    public HitSuccessIndicator hitSuccessIndicator;
 
     public IEnumerator round;
     public Turn turn = new Turn();

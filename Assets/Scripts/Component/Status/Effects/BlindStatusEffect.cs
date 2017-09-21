@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class BlindStatusEffect : MonoBehaviour {
+public class BlindStatusEffect : StatusEffect {
 
     void OnEnable()
     {

@@ -5,32 +5,41 @@ using UnityEngine;
 public class ActionSelectionState : BaseAbilityMenuState
 {
     public static int category;
-    string[] whiteMagicOptions = new string[] {"Cure", "Raise", "Holy"};
-    string[] blackMagicOptions = new string[] { "Fire", "Blizzard", "Thunder" };
+    private AbilityCatalog catalog;
 
     protected override void LoadMenu()
     {
-        if (menuOptions == null)
-            menuOptions = new List<string>(3);
+        catalog = turn.actor.GetComponentInChildren<AbilityCatalog>();
+        GameObject container = catalog.GetCategory(category);
+        menuTitle = container.name;
 
-        if (category == 0)
+        int count = catalog.AbilityCount(container);
+        if (menuOptions == null)
+            menuOptions = new List<string>();
+        else 
+            menuOptions.Clear();
+
+        bool[] locks = new bool[count];
+        for (int i = 0; i < count; ++i)
         {
-            menuTitle = "White Magic";
-            SetOptions(whiteMagicOptions);
+            Ability ability = catalog.GetAbility(category, i);
+            AbilityMagicCost cost = ability.GetComponent<AbilityMagicCost>();
+            if (cost)
+                menuOptions.Add(string.Format("{0}: {1}", ability.name, cost.amount));
+            else 
+                menuOptions.Add(ability.name);
+            locks[i] = !ability.CanPerform();
         }
-        else
-        {
-            menuTitle = "Black Magic";
-            SetOptions(blackMagicOptions);
-        }
+
+        abilityMenuPanelController.Show(menuTitle, menuOptions);
+        for (int i = 0; i < count; ++i)
+            abilityMenuPanelController.SetLocked(i, locks[i]);
     }
 
     protected override void Confirm()
     {
-        turn.hasUnitActed = true;
-        if (turn.hasUnitMoved)
-            turn.lockMove = true;
-        owner.ChangeState<CommandSelectionState>();
+        turn.ability = catalog.GetAbility(category, abilityMenuPanelController.selection);
+        owner.ChangeState<AbilityTargetState>();
     }
 
     protected override void Cancel()

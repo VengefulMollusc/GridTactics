@@ -591,7 +591,6 @@ MonoBehaviour:
   pos:
     x: 0
     y: 0
-  heroPrefab: {fileID: 1469408904405030, guid: 2aa7fdb74de0e38438e516cd56dc5819, type: 2}
   abilityMenuPanelController: {fileID: 1139429571}
   statPanelController: {fileID: 924420575}
   hitSuccessIndicator: {fileID: 576371288}
